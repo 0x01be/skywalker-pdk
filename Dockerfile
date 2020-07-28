@@ -35,3 +35,5 @@ FROM alpine:3.12.0
 
 COPY --from=builder /opt/skywalker-pdk/ /opt/skywalker-pdk/
 
+ENV PDK_ROOT /opt/skywalker-pdk/
+
