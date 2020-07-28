@@ -21,11 +21,11 @@ WORKDIR /opt/skywalker-pdk
 
 RUN git submodule update --init libraries/$LIBRARY/latest
 
-WORKDIR /skywalker-pdk/scripts/python-skywater-pdk
+WORKDIR /opt/skywalker-pdk/scripts/python-skywater-pdk
 
 RUN python3 setup.py install
 
-WORKDIR /skywalker-pdk/libraries
+WORKDIR /opt/skywalker-pdk/libraries
 
 RUN python3 -m skywater_pdk.liberty $LIBRARY/latest
 RUN python3 -m skywater_pdk.liberty $LIBRARY/latest all
