@@ -1,6 +1,6 @@
 FROM alpine:3.12.0 as builder
 
-ARG LIBRARY sky130_fd_sc_hd
+ARG LIBRARY=sky130_fd_sc_hd
 
 RUN apk add --no-cache --virtual build-dependencies \
     --repository http://dl-cdn.alpinelinux.org/alpine/edge/main \
