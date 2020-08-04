@@ -2,7 +2,7 @@ FROM 0x01be/alpine:edge as builder
 
 ARG LIBRARY=sky130_fd_sc_hd
 
-RUN apk add --no-cache --virtual skywalker-pdk-build-dependencies \
+RUN apk add --no-cache --virtual skywater-pdk-build-dependencies \
     git \
     build-base \
     py3-pip \
@@ -12,17 +12,17 @@ RUN pip install \
     flake8 \
     rst_include
 
-RUN git clone https://github.com/google/skywater-pdk /opt/skywalker-pdk
+RUN git clone https://github.com/google/skywater-pdk /opt/skywater-pdk
 
-WORKDIR /opt/skywalker-pdk
+WORKDIR /opt/skywater-pdk
 
 RUN git submodule update --init libraries/$LIBRARY/latest
 
-WORKDIR /opt/skywalker-pdk/scripts/python-skywater-pdk
+WORKDIR /opt/skywater-pdk/scripts/python-skywater-pdk
 
 RUN python3 setup.py install
 
-WORKDIR /opt/skywalker-pdk/libraries
+WORKDIR /opt/skywater-pdk/libraries
 
 RUN python3 -m skywater_pdk.liberty $LIBRARY/latest
 RUN python3 -m skywater_pdk.liberty $LIBRARY/latest all
@@ -30,7 +30,7 @@ RUN python3 -m skywater_pdk.liberty $LIBRARY/latest all --ccsnoise
 
 FROM 0x01be/alpine:edge
 
-COPY --from=builder /opt/skywalker-pdk/ /opt/skywalker-pdk/
+COPY --from=builder /opt/skywater-pdk/ /opt/skywater-pdk/
 
-ENV PDK_ROOT /opt/skywalker-pdk/
+ENV PDK_ROOT /opt/skywater-pdk/
 
