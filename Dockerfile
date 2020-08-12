@@ -1,4 +1,4 @@
-FROM 0x01be/alpine:edge as builder
+FROM alpine as builder
 
 ARG LIBRARY=sky130_fd_sc_hd
 
@@ -28,7 +28,7 @@ RUN python3 -m skywater_pdk.liberty $LIBRARY/latest
 RUN python3 -m skywater_pdk.liberty $LIBRARY/latest all
 RUN python3 -m skywater_pdk.liberty $LIBRARY/latest all --ccsnoise
 
-FROM 0x01be/alpine:edge
+FROM alpine
 
 COPY --from=builder /opt/skywater-pdk/ /opt/skywater-pdk/
 
