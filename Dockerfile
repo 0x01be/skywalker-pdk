@@ -13,7 +13,7 @@ RUN pip install \
     rst_include
 
 ENV REVISION=master
-RUN git clone --depth 1 --branch ${REVISION} https://github.com/google/skywater-pdk /opt/skywalker-pdk
+RUN git clone --recursive --branch ${REVISION} https://github.com/google/skywater-pdk /opt/skywalker-pdk
 
 WORKDIR /opt/skywater-pdk
 
