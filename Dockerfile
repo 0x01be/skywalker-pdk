@@ -31,28 +31,31 @@ RUN python3 setup.py install
 
 WORKDIR /opt/skywater-pdk/libraries
 
-RUN python3 -m skywater_pdk.liberty sky130_sc_hd/${LIBRARY_VERSION} &&\ 
-    python3 -m skywater_pdk.liberty sky130_sc_hd/${LIBRARY_VERSION} all &&\ 
-    python3 -m skywater_pdk.liberty sky130_sc_hd/${LIBRARY_VERSION} all --ccsnoise &&\ 
-    python3 -m skywater_pdk.liberty sky130_sc_hdll/${LIBRARY_VERSION} &&\ 
-    python3 -m skywater_pdk.liberty sky130_sc_hdll/${LIBRARY_VERSION} all &&\ 
-    python3 -m skywater_pdk.liberty sky130_sc_hdll/${LIBRARY_VERSION} all --ccsnoise &&\ 
-    python3 -m skywater_pdk.liberty sky130_sc_hs/${LIBRARY_VERSION} &&\ 
-    python3 -m skywater_pdk.liberty sky130_sc_hs/${LIBRARY_VERSION} all &&\ 
-    python3 -m skywater_pdk.liberty sky130_sc_hs/${LIBRARY_VERSION} all --ccsnoise &&\ 
-    python3 -m skywater_pdk.liberty sky130_sc_hvl/${LIBRARY_VERSION} &&\ 
-    python3 -m skywater_pdk.liberty sky130_sc_hvl/${LIBRARY_VERSION} all &&\ 
-    python3 -m skywater_pdk.liberty sky130_sc_hvl/${LIBRARY_VERSION} all --ccsnoise &&\ 
-    python3 -m skywater_pdk.liberty sky130_sc_lp/${LIBRARY_VERSION} &&\ 
-    python3 -m skywater_pdk.liberty sky130_sc_lp/${LIBRARY_VERSION} all &&\ 
-    python3 -m skywater_pdk.liberty sky130_sc_lp/${LIBRARY_VERSION} all --ccsnoise &&\ 
-    python3 -m skywater_pdk.liberty sky130_sc_ls/${LIBRARY_VERSION} &&\ 
-    python3 -m skywater_pdk.liberty sky130_sc_ls/${LIBRARY_VERSION} all &&\ 
-    python3 -m skywater_pdk.liberty sky130_sc_ls/${LIBRARY_VERSION} all --ccsnoise &&\ 
-    python3 -m skywater_pdk.liberty sky130_sc_ms/${LIBRARY_VERSION} &&\ 
-    python3 -m skywater_pdk.liberty sky130_sc_ms/${LIBRARY_VERSION} all &&\ 
-    python3 -m skywater_pdk.liberty sky130_sc_ms/${LIBRARY_VERSION} all --ccsnoise &&\ 
-    python3 -m skywater_pdk.liberty sky130_sc_ms/${LIBRARY_VERSION} all --leakage
+RUN python3 -m skywater_pdk.liberty sky130_fd_io/${LIBRARY_VERSION} &&\ 
+    python3 -m skywater_pdk.liberty sky130_fd_io/${LIBRARY_VERSION} all &&\ 
+    python3 -m skywater_pdk.liberty sky130_fd_io/${LIBRARY_VERSION} all --ccsnoise &&\ 
+    python3 -m skywater_pdk.liberty sky130_fd_sc_hd/${LIBRARY_VERSION} &&\ 
+    python3 -m skywater_pdk.liberty sky130_fd_sc_hd/${LIBRARY_VERSION} all &&\ 
+    python3 -m skywater_pdk.liberty sky130_fd_sc_hd/${LIBRARY_VERSION} all --ccsnoise &&\ 
+    python3 -m skywater_pdk.liberty sky130_fd_sc_hdll/${LIBRARY_VERSION} &&\ 
+    python3 -m skywater_pdk.liberty sky130_fd_sc_hdll/${LIBRARY_VERSION} all &&\ 
+    python3 -m skywater_pdk.liberty sky130_fd_sc_hdll/${LIBRARY_VERSION} all --ccsnoise &&\ 
+    python3 -m skywater_pdk.liberty sky130_fd_sc_hs/${LIBRARY_VERSION} &&\ 
+    python3 -m skywater_pdk.liberty sky130_fd_sc_hs/${LIBRARY_VERSION} all &&\ 
+    python3 -m skywater_pdk.liberty sky130_fd_sc_hs/${LIBRARY_VERSION} all --ccsnoise &&\ 
+    python3 -m skywater_pdk.liberty sky130_fd_sc_hvl/${LIBRARY_VERSION} &&\ 
+    python3 -m skywater_pdk.liberty sky130_fd_sc_hvl/${LIBRARY_VERSION} all &&\ 
+    python3 -m skywater_pdk.liberty sky130_fd_sc_hvl/${LIBRARY_VERSION} all --ccsnoise &&\ 
+    python3 -m skywater_pdk.liberty sky130_fd_sc_lp/${LIBRARY_VERSION} &&\ 
+    python3 -m skywater_pdk.liberty sky130_fd_sc_lp/${LIBRARY_VERSION} all &&\ 
+    python3 -m skywater_pdk.liberty sky130_fd_sc_lp/${LIBRARY_VERSION} all --ccsnoise &&\ 
+    python3 -m skywater_pdk.liberty sky130_fd_sc_ls/${LIBRARY_VERSION} &&\ 
+    python3 -m skywater_pdk.liberty sky130_fd_sc_ls/${LIBRARY_VERSION} all &&\ 
+    python3 -m skywater_pdk.liberty sky130_fd_sc_ls/${LIBRARY_VERSION} all --ccsnoise &&\ 
+    python3 -m skywater_pdk.liberty sky130_fd_sc_ms/${LIBRARY_VERSION} &&\ 
+    python3 -m skywater_pdk.liberty sky130_fd_sc_ms/${LIBRARY_VERSION} all &&\ 
+    python3 -m skywater_pdk.liberty sky130_fd_sc_ms/${LIBRARY_VERSION} all --ccsnoise &&\ 
+    python3 -m skywater_pdk.liberty sky130_fd_sc_ms/${LIBRARY_VERSION} all --leakage
 
 FROM alpine
 
