@@ -1,5 +1,7 @@
 FROM alpine as build
 
+ARG REVISION=master \
+    LIBRARY_VERSION=latest
 RUN apk add --no-cache --virtual skywater-pdk-build-dependencies \
     git \
     build-base \
@@ -7,14 +9,11 @@ RUN apk add --no-cache --virtual skywater-pdk-build-dependencies \
     py3-setuptools &&\
     pip install \
     flake8 \
-    rst_include
-
-ENV REVISION=master
-RUN git clone --depth 1 --branch ${REVISION} https://github.com/google/skywater-pdk /opt/skywater-pdk
+    rst_include &&\
+    git clone --depth 1 --branch ${REVISION} https://github.com/google/skywater-pdk /opt/skywater-pdk
 
 WORKDIR /opt/skywater-pdk
 
-ARG LIBRARY_VERSION=latest
 RUN git submodule update --init libraries/sky130_fd_io/${LIBRARY_VERSION} &&\
     git submodule update --init libraries/sky130_fd_pr/${LIBRARY_VERSION} &&\ 
     git submodule update --init libraries/sky130_fd_sc_hd/${LIBRARY_VERSION} &&\ 
