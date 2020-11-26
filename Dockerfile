@@ -1,7 +1,7 @@
 FROM alpine as build
 
-ARG REVISION=master \
-    LIBRARY_VERSION=latest
+ARG REVISION=master
+ARG LIBRARY_VERSION=latest
 RUN apk add --no-cache --virtual skywater-pdk-build-dependencies \
     git \
     build-base \
@@ -53,9 +53,9 @@ RUN python3 -m skywater_pdk.liberty sky130_fd_sc_hd/${LIBRARY_VERSION} &&\
     python3 -m skywater_pdk.liberty sky130_fd_sc_ms/${LIBRARY_VERSION} all --ccsnoise &&\ 
     python3 -m skywater_pdk.liberty sky130_fd_sc_ms/${LIBRARY_VERSION} all --leakage
 
-FROM alpine
+#FROM alpine
 
-COPY --from=build /opt/skywater-pdk/ /opt/skywater-pdk/
+#COPY --from=build /opt/skywater-pdk/ /opt/skywater-pdk/
 
-ENV PDK_ROOT=/opt/skywater-pdk/
+#ENV PDK_ROOT=/opt/skywater-pdk/
 
