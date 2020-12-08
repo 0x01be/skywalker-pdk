@@ -53,9 +53,3 @@ RUN python3 -m skywater_pdk.liberty sky130_fd_sc_hd/${LIBRARY_VERSION} &&\
     python3 -m skywater_pdk.liberty sky130_fd_sc_ms/${LIBRARY_VERSION} all --ccsnoise &&\ 
     python3 -m skywater_pdk.liberty sky130_fd_sc_ms/${LIBRARY_VERSION} all --leakage
 
-#FROM alpine
-
-#COPY --from=build /opt/skywater-pdk/ /opt/skywater-pdk/
-
-#ENV PDK_ROOT=/opt/skywater-pdk/
-
