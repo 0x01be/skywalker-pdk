@@ -1,7 +1,7 @@
 FROM alpine as build
 
 ENV PDK_ROOT=/opt/skywater-pdk
-ARG REVISION=master
+ARG REVISION=v0.0.0-303-g3d7617a
 ARG LIBRARY_VERSION=latest
 RUN apk add --no-cache --virtual skywater-pdk-build-dependencies \
     git \
