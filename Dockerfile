@@ -1,4 +1,4 @@
-FROM alpine as build
+FROM 0x01be/base as build
 
 ENV PDK_ROOT=/opt/skywater-pdk
 ARG REVISION=master
