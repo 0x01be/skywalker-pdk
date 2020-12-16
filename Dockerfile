@@ -24,6 +24,7 @@ WORKDIR ${PDK_ROOT}/libraries
 RUN python3 -m skywater_pdk.liberty sky130_fd_sc_hd/${LIBRARY_VERSION} &&\ 
     python3 -m skywater_pdk.liberty sky130_fd_sc_hd/${LIBRARY_VERSION} all &&\ 
     python3 -m skywater_pdk.liberty sky130_fd_sc_hd/${LIBRARY_VERSION} all --ccsnoise &&\ 
+    python3 -m skywater_pdk.liberty sky130_fd_sc_hvl/${LIBRARY_VERSION} &&\ 
     python3 -m skywater_pdk.liberty sky130_fd_sc_hvl/${LIBRARY_VERSION} all &&\ 
     python3 -m skywater_pdk.liberty sky130_fd_sc_hvl/${LIBRARY_VERSION} all --ccsnoise
 
